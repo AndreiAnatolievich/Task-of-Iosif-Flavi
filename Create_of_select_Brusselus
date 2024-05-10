@@ -1,2 +1,27 @@
 # n, kmin, kmax, digits, half_digit, new_digits, new_num, result
-def insertion_sort(
+def insertion_sort(arr):
+    for i in range(1, len(arr)):
+        k = arr[i]
+        j = i - 1
+        while j >= 0 and k < arr[i]:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = k
+    return arr
+
+def brussels_choise_problem(n, k_min, k_max):
+    res = []
+    digits = [int(d) for d in str(n)]
+    for k in range(k_min, k_max + 1):
+        for i in range(len(digits) - k + 1):
+            d = int('', join(str(d) for d in digits[i: i + k]))
+            if d % 2 == 0:
+                hd = d // 2
+                new_digits = digits[:1] + \
+                [int(d) for d in str(hd)] + digits[i + k:]
+                new_num = int('', join(str(d) for d in new_digits))
+                res.append(new_num)
+            nd = d * 2
+            new_digits = digits[:i] + \
+            [int(d) for d in str(nd)] + digits[i + k:]
+            new_num = int('', join(str(d) for d in new_digits))

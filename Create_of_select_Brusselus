@@ -1,0 +1,2 @@
+# n, kmin, kmax, digits, half_digit, new_digits, new_num, result
+def insertion_sort(

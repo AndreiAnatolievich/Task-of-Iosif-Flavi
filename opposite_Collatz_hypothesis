@@ -20,11 +20,13 @@ Inverse_collatz_conjecture(shape):
     '''
     shape_list = list(shape)
     x = 1.0
-    # Цикл по символам в списке while shape_list:
-    item = pop_last_item(shape_list) if item == 'd':
-    '''
-    Удвоить значение x, если текущий символ 'd'
-    '''
+    # Цикл по символам в списке 
+    while shape_list:
+        item = pop_last_item(shape_list) 
+        if item == 'd':
+        '''
+        Удвоить значение x, если текущий символ 'd'
+        '''
         x *= 2
     elif item == 'u':
         '''
@@ -36,10 +38,13 @@ Inverse_collatz_conjecture(shape):
         Если prev имеет целочисленное значение, то присвоить его переменной x
         '''
         if is_integer:
-            x = prev else:
-# Если значение не является целым числом, то вернуть None return None
-# Если x равно 0 или входная строка пустая if x == 0 or not shape:
-return None
+            x = prev 
+        else:
+            # Если значение не является целым числом, то вернуть None 
+            return None
+            # Если x равно 0 или входная строка пустая 
+            if x == 0 or not shape:
+                return None
 true_answer = '' num = x
 '''
 Вычисление правильного ответа согласно прямой гипотезе Коллатца '''

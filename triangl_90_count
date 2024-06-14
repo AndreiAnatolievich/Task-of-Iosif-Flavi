@@ -1,0 +1,8 @@
+def triangle_90_count(points):
+    conteiner = 0
+    for x, y in points:
+        for x2, y2 in points:
+            if x2 > x and y2 == y and\
+                (x + y2 - y, y + x2 - x) in points:
+                conteiner += 1
+    return conteiner
